@@ -1,0 +1,40 @@
+- hosts: web
+  tasks:
+  - name: install httpd
+    yum:
+      name: httpd
+      state: latest
+  - name: Start httpd
+    systemd: 
+      name: httpd
+      state: started
+  - name: Enable httpd 
+    systemd:
+      name: httpd
+      enabled: yes
+      masked: no
+- hosts: web
+  tasks:
+  - name: Download Templates
+    get_url:
+      url:  https://www.free-css.com/assets/files/free-css-templates/download/page259/the-town.zip
+      dest: /var/www/html
+- hosts: web
+  tasks:
+  - name: unzip
+    yum:
+      name: unzip
+      state: latest
+  - name: unzip file
+    unarchive: 
+      src: /var/www/html/the-town.zip
+      dest: /var/www/html
+      remote_src: yes
+- hosts: web
+  tasks: 
+  - name: move files
+    shell: mv /var/www/html/templatemo_525_the_town/* /var/www/html/
+
+
+
+    

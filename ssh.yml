@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+  - name: Install ssh key
+    authorized_key:
+      user: ec2-user
+      state: present
+      key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDI/4sRJkJvt3Tw2MGv4kHNsVz7Jf4vSOO0V4zGWBGr8F36eOP0+ixX5QsZ4CGXIjFc/aBtUsbuMduuRU0rYVqhT1znziCazAgh6aZPR4okueLXP4XgcBiESkZmF+A3xwEgVS78/QphrGsD0zEFJkCOxIudK+v+f8VCdT45/agSy9tulQ2GcbI2xIDn4egTumBn3RsvBp9hicUPvCFBx+XBS4ywhFo5TfmYfuF8sRyoAUnYKjAPCSuSqpRM0a9b4Y8Xqi3ZHWjrty/r4WMcEwMLfDcGKQdT7LxIZBjiVDii3nPp4RuGZDfheGb7fa7M7k7ly8xKskkPUVYrKfRV+7o9 centos@Bastion"
+     
